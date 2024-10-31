@@ -1,9 +1,9 @@
+import { Button } from 'react-bootstrap';
 
 export default function Square({ value, onSquareClick }) {
     return (
-      <button className="square" onClick={onSquareClick}>
+      <Button className="square" onClick={onSquareClick} variant="outline-secondary">
         {value}
-      </button>
+      </Button>
     );
-  }
-  
+}

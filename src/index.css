@@ -17,10 +17,11 @@
   display: flex;
 }
 .game-board{
-  background-color: yellow;
+  background-color: rgb(54, 55, 80);
+  color:white   
 }
 .game-info{
-  background-color: gray;
+  background-color: rgb(54, 55, 80);
   display: flex
 }
 body{

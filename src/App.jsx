@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { Container, Row, Col, Button, ListGroup } from 'react-bootstrap';
 import Board from './components/Board';
+
 export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
@@ -24,27 +26,34 @@ export default function Game() {
       description = 'Go to game start';
     }
     return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
-      </li>
+      <ListGroup.Item key={move}>
+        <Button variant="link" onClick={() => jumpTo(move)}>{description}</Button>
+      </ListGroup.Item>
     );
   });
 
   return (
-    <div id="tela">
-    <div id="txt">
-    <h1>JOGO DA VELHA</h1>
-    <p>expanda o universo jogando <em>tic-tac-toe</em></p>
-    </div>
-    <div className="game">
-      
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>
-      <div className="game-info">
-        <ol>{moves}</ol>
-      </div>
-    </div>
-    </div>
+    <Container className="text-center">
+      <Row>
+        <Col>
+          <h1>JOGO DA VELHA</h1>
+          <p>expanda o universo jogando <em>tic-tac-toe</em></p>
+          <p>- X é alien</p>
+          <p>- O é astronauta</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <div className="game">
+            <div className="game-board">
+              <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+            </div>
+            <div className="game-info">
+              <ListGroup>{moves}</ListGroup>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }

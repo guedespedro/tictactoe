@@ -1,5 +1,6 @@
+import { Alert } from 'react-bootstrap';
 import Square from "./Square";
-import Game from "../App";
+
 export default function Board({ xIsNext, squares, onPlay }) {
     function handleClick(i) {
       if (calculateWinner(squares) || squares[i]) {
@@ -19,12 +20,12 @@ export default function Board({ xIsNext, squares, onPlay }) {
     if (winner) {
       status = 'Winner: ' + winner;
     } else {
-      status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+      status = 'Next player: ' + (xIsNext ? '👽' : '👨‍🚀');
     }
   
     return (
       <>
-        <div className="status">{status}</div>
+        <Alert variant="info">{status}</Alert>
         <div className="board-row">
           <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
           <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
